@@ -1,17 +1,21 @@
 <?php
 
-    class Display {
+    class Display
+    {
 
-        public function promptProduct(Inventory $inventory) {
+        public function promptProduct(Inventory $inventory)
+        {
             $name = readline("Product name: ");
             $price = (int) readline("Product price (¢): ");
             $quantity = (int) readline("Product quantity: ");
             $inventory->add(new Product($name, $price, $quantity));
         }
 
-        public function promptChooseToAdd(Inventory $inventory){
+        public function promptChooseToAdd(Inventory $inventory)
+        {
             $selection = readline("Do you want to add a product: (Y/N) ");
-            switch(strtoupper($selection)) {
+            switch(strtoupper($selection))
+            {
                 case "Y":
                     $this->promptProduct($inventory);
                     break;
@@ -21,7 +25,8 @@
             }
         }
 
-        public function listProducts(Inventory $inventory): string {
+        public function listProducts(Inventory $inventory): string
+        {
             $list = '';
             /** @var Product $product */
             foreach($inventory->getProducts() as $index => $product){
